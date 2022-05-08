@@ -73,17 +73,20 @@ const HeaderButton = styled.button`
   font-family: inherit;
   font-weight: 500;
 
-  :hover,
-  :focus {
-    background: white;
-  }
   transition: all 0.3s;
 
   width: unset;
   padding: 0.2em 0.4em;
+  :active {
+    background: ${Colors.white};
+  }
   @media (min-width: 700px) {
     width: 7em;
     padding: 0.5em 0;
+    :hover,
+    :focus {
+      background: white;
+    }
   }
 `;
 
