@@ -13,13 +13,16 @@ const PageWrapper = styled.div`
 const PageBody = styled.div`
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: ${({ verticallyCenterContent }) =>
+    verticallyCenterContent ? 'center' : 'flex-start'};
 
   height: 90%;
 
   font-size: 30px;
   font-weight: 700;
   background: ${({ background }) => background};
+
+  overflow-y: auto;
 `;
 
 const App = () => {
@@ -29,7 +32,10 @@ const App = () => {
   return (
     <PageWrapper>
       <Header page={page} setPage={setPage} />
-      <PageBody background={page.background || Colors.white}>
+      <PageBody
+        background={page.background || Colors.white}
+        verticallyCenterContent={page.name !== pageConfig.about.name}
+      >
         <PageComponent name={page.name} />
       </PageBody>
     </PageWrapper>

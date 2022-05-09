@@ -8,10 +8,10 @@ const blinker = '│';
 const TextContainer = styled.div`
   display: flex;
   justify-content: left;
-  font-weight: 600;
   
+  font-weight: 600;
   font-size: 40px;
-  width: 95vw;
+  width: 90vw;
   @media (min-width: 700px) {
     font-size: 50px;
     width: ${name.length - 1.5}ch;
