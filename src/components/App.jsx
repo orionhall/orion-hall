@@ -8,6 +8,9 @@ import { Colors } from '../styles/Colors';
 const PageWrapper = styled.div`
   flex-direction: column;
   height: 100%;
+
+
+  overflow-y: auto;
 `;
 
 const PageBody = styled.div`
@@ -21,8 +24,6 @@ const PageBody = styled.div`
   font-size: 30px;
   font-weight: 700;
   background: ${({ background }) => background};
-
-  overflow-y: auto;
 `;
 
 const App = () => {
