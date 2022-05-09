@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import styled from 'styled-components';
 
 import Header from './Header';
-import Home from './pages/Home';
-import PageConfig from '../constants/pages';
+import pageConfig from '../constants/pages';
 import { Colors } from '../styles/Colors';
 
 const PageWrapper = styled.div`
@@ -20,17 +19,18 @@ const PageBody = styled.div`
 
   font-size: 30px;
   font-weight: 700;
-  background: ${({ pageColor }) => pageColor};
+  background: ${({ background }) => background};
 `;
 
 const App = () => {
-  const [currentPage, setCurrentPage] = useState(PageConfig.home);
+  const [page, setPage] = useState(pageConfig.home);
+  const { component: PageComponent } = page;
 
   return (
     <PageWrapper>
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
-      <PageBody pageColor={currentPage.pageColor || Colors.white}>
-        {currentPage === PageConfig.home ? <Home /> : currentPage.name}
+      <Header page={page} setPage={setPage} />
+      <PageBody background={page.background || Colors.white}>
+        <PageComponent name={page.name} />
       </PageBody>
     </PageWrapper>
   );

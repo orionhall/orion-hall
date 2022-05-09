@@ -2,7 +2,7 @@ import React from 'react';
 import styled from 'styled-components';
 
 import { Colors } from '../styles/Colors';
-import PageConfig from '../constants/pages';
+import pageConfig from '../constants/pages';
 
 const Wrapper = styled.div`
   display: flex;
@@ -63,7 +63,7 @@ const ButtonArea = styled.div`
   }
 `;
 
-const HeaderButton = styled.button`
+const PageButton = styled.button`
   margin-right: 5px;
 
   border: 1px solid black;
@@ -83,30 +83,29 @@ const HeaderButton = styled.button`
   @media (min-width: 700px) {
     width: 7em;
     padding: 0.5em 0;
-    :hover,
-    :focus {
+    :hover {
       background: white;
     }
   }
 `;
 
-const Header = ({ currentPage, setCurrentPage }) => (
-  <Wrapper hasBottomBorder={currentPage !== PageConfig.home}>
+const Header = ({ page, setPage }) => (
+  <Wrapper hasBottomBorder={page !== pageConfig.home}>
     <Logo>
-      <NameButton onClick={() => setCurrentPage(PageConfig.home)}>
-        {PageConfig.home.name}
+      <NameButton onClick={() => setPage(pageConfig.home)}>
+        {pageConfig.home.name}
       </NameButton>
     </Logo>
     <ButtonArea>
-      <HeaderButton onClick={() => setCurrentPage(PageConfig.about)}>
-        {PageConfig.about.name}
-      </HeaderButton>
-      <HeaderButton onClick={() => setCurrentPage(PageConfig.experience)}>
-        {PageConfig.experience.name}
-      </HeaderButton>
-      <HeaderButton onClick={() => setCurrentPage(PageConfig.blog)}>
-        {PageConfig.blog.name}
-      </HeaderButton>
+      <PageButton onClick={() => setPage(pageConfig.about)}>
+        {pageConfig.about.name}
+      </PageButton>
+      <PageButton onClick={() => setPage(pageConfig.experience)}>
+        {pageConfig.experience.name}
+      </PageButton>
+      <PageButton onClick={() => setPage(pageConfig.blog)}>
+        {pageConfig.blog.name}
+      </PageButton>
     </ButtonArea>
   </Wrapper>
 );
